@@ -65,6 +65,18 @@ if __name__ == '__main__':
             speak("Thank You")
             break
 
+        if "change voice" in query:
+            speak("Okay, choose your voice....., enter 1 for male 2 for female")
+            ch_voice=int(input())
+            match ch_voice:
+                case 1:
+                    voice_processor.setProperty('voice', voice_processor.getProperty('voices')[0].id)
+                    speak("Thank You, Lacey")
+                case 2:
+                    voice_processor.setProperty('voice', voice_processor.getProperty('voices')[1].id)
+                    speak("Thank You, Nolan")
+            speak("Voice Change Complete..... let's proceed....")
+
         if "update" in query:
             speak("Ok. Checking for updates.....")
             call("pip install --upgrade --no-cache-dir " + ' '.join([dist.project_name for dist in pkg_resources.working_set]), shell=True)
@@ -82,12 +94,14 @@ if __name__ == '__main__':
                msvcrt.getch()
         
         if "youtube" in query:
+            speak("Okay, I'll Playing it now")
             pykt.playonyt(query)
             speak("I'll be waiting in Background, press enter when finished to proceed..")
             print("Press Enter to continue..")
             msvcrt.getch()
 
         if "google" in query:
+            query.replace("google", "")
             pykt.search(query)
             speak("I'll be waiting in Background, press enter when finished to procced..")
             print("Press Enter to Continue....")

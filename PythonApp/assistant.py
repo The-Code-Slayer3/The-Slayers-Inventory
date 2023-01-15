@@ -7,8 +7,8 @@ ch_voice=int(input("for Male Voice Enter 1, for Female voice enter 2\n"))
 match ch_voice:
     case 1:
         # voice[0].id ie male
-        print("You Chose Nolan...")
-        voice_processor.setProperty('voice', voice_processor.getProperty('voices')[0].id)
+        print("You Chose Nolan...") # you can change the names as you require 
+        voice_processor.setProperty('voice', voice_processor.getProperty('voices')[0].id)# I have only 2 voices installed you can use other voices too[0,X]
     case 2:
         #voice[1].id ie. female
         print("You Chose Lacey....")

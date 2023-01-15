@@ -2,17 +2,18 @@ import msvcrt,wikipedia, pywhatkit as pykt, speech_recognition as sr,pkg_resourc
 from datetime import datetime
 from subprocess import call
 voice_processor = pyttsx3.init('sapi5')
-
-global ch_voice=int(input("for Male Voice Enter 1, for Female voice enter 2\n"))
+ch_voice=int(input("for Male Voice Enter 1, for Female voice enter 2\n"))
+maleVoice=voice_processor.getProperty('voices')[0].id
+femaleVoice=voice_processor.getProperty('voices')[1].id
 match ch_voice:
     case 1:
         # voice[0].id ie male
         print("You Chose Nolan...") # you can change the names as you require 
-        voice_processor.setProperty('voice', voice_processor.getProperty('voices')[0].id)# I have only 2 voices installed you can use other voices too[0,X]
+        voice_processor.setProperty('voice', maleVoice)# I have only 2 voices installed you can use other voices too[0,X]
     case 2:
         #voice[1].id ie. female
         print("You Chose Lacey....")
-        voice_processor.setProperty('voice',voice_processor.getProperty('voices')[1].id)
+        voice_processor.setProperty('voice',femaleVoice)
 
 voice_processor.setProperty('volume',1.0)
 voice_processor.setProperty('rate',155)
@@ -70,10 +71,10 @@ if __name__ == '__main__':
             #ch_voice=int(input()) # local variable Defaukt is global ch_voice variable
             match ch_voice:
                 case 1:
-                    voice_processor.setProperty('voice', voice_processor.getProperty('voices')[0].id)
+                    voice_processor.setProperty('voice', maleVoice)
                     speak("Thank You, Lacey")
                 case 2:
-                    voice_processor.setProperty('voice', voice_processor.getProperty('voices')[1].id)
+                    voice_processor.setProperty('voice', femaleVoice)
                     speak("Thank You, Nolan")
             speak("Voice Change Complete..... let's proceed....")
 

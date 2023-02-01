@@ -8,8 +8,7 @@ change voice
 The requirements package is included use pip install -r requirements.txt
 requuirements:
 win10/11 or linux or mac os
-python 3.10 because of match-case
-not compatible with versions >3.10
+not compatible with versions <3.10
 any improvements will be appericiated
 
 """

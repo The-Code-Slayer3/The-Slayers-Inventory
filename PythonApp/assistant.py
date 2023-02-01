@@ -1,3 +1,21 @@
+"""
+Author: Me
+added 1 month ago
+This program can:
+find info on google,wikipedia
+play videos on YT
+change voice
+The requirements package is included use pip install -r requirements.txt
+requuirements:
+win10/11 or linux or mac os
+python 3.10 because of match-case
+not compatible with versions >3.10
+any improvements will be appericiated
+
+"""
+
+
+
 import msvcrt,wikipedia, pywhatkit as pykt, speech_recognition as sr,pkg_resources,pyttsx3
 from datetime import datetime
 from subprocess import call
@@ -52,7 +70,7 @@ def Userinput():
         r.adjust_for_ambient_noise(source)
     try:
         print('recognising....')
-        query = r.recognize_google(audio, language='en-in') # you can use em_IN, en_US,en_CA for indian, american, canadian english, but make it sure that your voice model supports it
+        query = r.recognize_google(audio, language='en-in') # you can use en_IN, en_US,en_CA for indian, american, canadian english, but be sure that your voice model supports it
         print(f"You Said: {query}\n")
     except Exception:
         print("Say that again please...")   #Say that again will be printed if errors in voice czannot be cleared 
@@ -94,15 +112,15 @@ if __name__ == '__main__':
                speak(results)
                msvcrt.getch()
         
-        if "youtube" in query:
-            speak("Okay, I'll Playing it now")
-            pykt.playonyt(query)
-            speak("I'll be waiting in Background, press enter when finished to proceed..")
-            print("Press Enter to continue..")
-            msvcrt.getch()
-
         if "google" in query:
             pykt.search(query)
             speak("I'll be waiting in Background, press enter when finished to procced..")
             print("Press Enter to Continue....")
+            msvcrt.getch()
+      
+        if "youtube" in query:
+            speak("Okay, I'll be Playing it now")
+            pykt.playonyt(query)
+            speak("I'll be waiting in Background, press enter when finished to proceed..")
+            print("Press Enter to continue..")
             msvcrt.getch()
